@@ -1,1 +1,10 @@
 /.vscode
+
+# Object files
+*.o
+*.obj
+
+# Executables
+*.exe
+
+build/
