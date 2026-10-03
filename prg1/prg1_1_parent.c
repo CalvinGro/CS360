@@ -17,7 +17,7 @@ int main(void) {
 
     printf("----------- Parent Started -----------\n\n");
 
-    // loop through all children and assign them their sleep times
+    // loop through all children
     for (uint8_t i = 0; i < CHILDREN_COUNT; i++) {
         char cur_sleep_time[4];
         snprintf(cur_sleep_time, sizeof(cur_sleep_time), "%" PRIu8, child_sleep_times[i % CHILDREN_COUNT]);
@@ -65,7 +65,7 @@ int main(void) {
 
         printf("----- Child %" PRIu8 " Terminated -----\n", i);
         printf("  Child Result: %" PRIu8 "\n", child_output);
-        printf("  Child Actual time: %" PRIu64 " (micro sec)\n\n\n", child_time);
+        printf("  Child Actual time: %" PRIu64 " (micro secs)\n\n\n", child_time);
     }
 
     // start parent output
@@ -84,8 +84,8 @@ int main(void) {
     total_cpu_time += parent_time;
 
     // print cpu info
-    printf("  Parent CPU time: %" PRIu64 " (micro sec)\n", parent_time);
-    printf("  Total CPU time: %" PRIu64 " (micro sec)\n\n\n", total_cpu_time);
+    printf("  Parent CPU time: %" PRIu64 " (micro secs)\n", parent_time);
+    printf("  Total CPU time: %" PRIu64 " (micro secs)\n\n\n", total_cpu_time);
     
 
     return 0;

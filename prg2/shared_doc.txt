@@ -1,0 +1,28 @@
+Hey this is child 0
+ My pid is: 93003 
+My current cpu time is 141 (micro secs)
+
+Hey this is child 1
+ My pid is: 93004 
+My current cpu time is 140 (micro secs)
+
+This is child 0 again, I just waited 0 seconds.
+ My parent's pid is: 93002
+
+Hey this is child 2
+ My pid is: 93005 
+My current cpu time is 133 (micro secs)
+
+Hey this is child 3
+ My pid is: 93006 
+My current cpu time is 119 (micro secs)
+
+This is child 1 again, I just waited 1 seconds.
+ My parent's pid is: 93002
+
+This is child 2 again, I just waited 2 seconds.
+ My parent's pid is: 93002
+
+This is child 3 again, I just waited 3 seconds.
+ My parent's pid is: 93002
+

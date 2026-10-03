@@ -49,7 +49,7 @@ int main(int argc, char *args[]) {
     uint64_t cpu_time = (uint64_t)usage.ru_utime.tv_sec * 1000000 + (uint64_t)usage.ru_utime.tv_usec;
 
     // print cpu time in micro seconds
-    printf("  Child 1 CPU time: %" PRIu64 " (micro sec)\n\n", cpu_time);
+    printf("  Child 1 CPU time: %" PRIu64 " (micro secs)\n\n", cpu_time);
 
     return grdchd_count;
 }
