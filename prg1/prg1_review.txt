@@ -1,0 +1,199 @@
+__________________________Program 1__________________________
+This program creates 4 children and 2 grandchildren. It has 
+child 0 and 3 count letters in a string, child 1 create the 2
+grandchildren, and child 2 find the largest integer in an 
+array that is passed in as a string argument. These programs
+all run concurrently and return their cpu usage and other
+stats and pids.
+
+______________________Program 1 Output_______________________
+
+frogg@Melchior-1:/mnt/c/Users/Frogg/OneDrive - Concordia University, Nebraska/Desktop/Programming/CS360/prg1/prg1_1$ gcc prg1_1_parent.c -o parent
+frogg@Melchior-1:/mnt/c/Users/Frogg/OneDrive - Concordia University, Nebraska/Desktop/Programming/CS360/prg1/prg1_1$ gcc prg1_1_child0.c -o child0
+frogg@Melchior-1:/mnt/c/Users/Frogg/OneDrive - Concordia University, Nebraska/Desktop/Programming/CS360/prg1/prg1_1$ gcc prg1_1_child1.c -o child1
+frogg@Melchior-1:/mnt/c/Users/Frogg/OneDrive - Concordia University, Nebraska/Desktop/Programming/CS360/prg1/prg1_1$ gcc prg1_1_child2.c -o child2
+frogg@Melchior-1:/mnt/c/Users/Frogg/OneDrive - Concordia University, Nebraska/Desktop/Programming/CS360/prg1/prg1_1$ gcc prg1_1_child3.c -o child3
+frogg@Melchior-1:/mnt/c/Users/Frogg/OneDrive - Concordia University, Nebraska/Desktop/Programming/CS360/prg1/prg1_1$ gcc prg1_1_grandchild.c -o grandchild
+frogg@Melchior-1:/mnt/c/Users/Frogg/OneDrive - Concordia University, Nebraska/Desktop/Programming/CS360/prg1/prg1_1$ ./parent
+----------- Parent Started -----------
+
+Child 0 sentence: A fat cat sat by the east window and watched the birds.
+
+Child 2 array = [2 4 3 65 3 55 6 35 46 34 23 1 2 37 67 0 4 2]
+
+Child 3 sentence: A fat cat sat by the east window and watched the birds.
+
+--------------------- Child 1 Forked ---------------------
+-- Child 1 Task: Create 2 grandchildren --
+
+--------------------- Child 0 Forked ---------------------
+-- Child 0 Task: Find count of "t"s in a string --
+
+--------------------- Child 2 Forked ---------------------
+-- Child 2 Task: Find largest integer from array arg --
+
+--------------------- Child 3 Forked ---------------------
+-- Child 3 Task: Find count of "a"s in a string --
+
+----- Child 0 Outputting -----
+  Child 0 PID: 97332
+  Child 0 Parent PID: 97331
+  Child 0 Resulting "t" count: 7
+  Child 0 CPU time: 0 (micro secs)
+
+----- Child 0 Terminated -----
+  Child Result: 7
+  Child Actual time: 0 (micro secs)
+
+
+----- Grandchild Outputting -----
+----- Grandchild Outputting -----
+  Grandchild PID: 97363
+  Grandchild PID: 97364
+  Grandchild Parent PID: 97333
+  Grandchild Parent PID: 97333
+  Grandchild CPU time: 1462
+
+  Grandchild CPU time: 0
+
+----- Child 1 Outputting -----
+  Child 1 PID: 97333
+  Child 1 Parent PID: 97331
+  Child 1 Grandchildren count: 2
+  Child 1 CPU time: 0 (micro secs)
+
+----- Child 1 Terminated -----
+  Child Result: 2
+  Child Actual time: 1607 (micro secs)
+
+
+----- Child 3 Outputting -----
+  Child 3 PID: 97335
+  Child 3 Parent PID: 97331
+  Child 3 Resulting "a" count: 6
+  Child 3 CPU time: 2734 (micro secs)
+
+----- Child 2 Outputting -----
+  Child 2 PID: 97334
+  Child 2 Parent PID: 97331
+  Child 2 Resulting largest int: 67
+  Child 2 CPU time: 0 (micro secs)
+
+----- Child 2 Terminated -----
+  Child Result: 67
+  Child Actual time: 0 (micro secs)
+
+
+----- Child 3 Terminated -----
+  Child Result: 6
+  Child Actual time: 3087 (micro secs)
+
+
+----- Parent Output -----
+  Parent's own PID: 97331
+  Child 0 PID: 97332
+  Child 1 PID: 97333
+  Child 2 PID: 97334
+  Child 3 PID: 97335
+  Parent CPU time: 0 (micro secs)
+  Total CPU time: 4694 (micro secs)
+
+___________________Program 1 Output Review___________________
+As can be seen by the order of the printed outputs, the child 
+are executed in different orders, primarily because of the 
+varying sleep times.
+
+
+
+__________________________Program 2__________________________
+This program creates 4 children and lets them write to a 
+shared .txt file. Each child writes to the document twice.
+Once when it is created and again after i seconds. Where i is
+the childs order number, for example, 2 seconds if it is 
+child 2. 
+
+____________________Program 2 Output File____________________
+Hey this is child 0
+ My pid is: 93003 
+My current cpu time is 141 (micro secs)
+
+Hey this is child 1
+ My pid is: 93004 
+My current cpu time is 140 (micro secs)
+
+This is child 0 again, I just waited 0 seconds.
+ My parent's pid is: 93002
+
+Hey this is child 2
+ My pid is: 93005 
+My current cpu time is 133 (micro secs)
+
+Hey this is child 3
+ My pid is: 93006 
+My current cpu time is 119 (micro secs)
+
+This is child 1 again, I just waited 1 seconds.
+ My parent's pid is: 93002
+
+This is child 2 again, I just waited 2 seconds.
+ My parent's pid is: 93002
+
+This is child 3 again, I just waited 3 seconds.
+ My parent's pid is: 93002
+
+___________________Program 2 Output Review___________________
+As can be seen in this file, the children are running 
+concurrently and all output twice. 
+
+
+
+__________________________Program 3__________________________
+This program creates 1 child and lets it sleep for 1 second
+while the parent dies. Then it displays its information.
+
+_______________________Program 3 Output______________________
+frogg@Melchior-1:/mnt/c/Users/Frogg/OneDrive - Concordia University, Nebraska/Desktop/Programming/CS360/prg1/prg1_orphan$ gcc prg1_orphan.c -o prg1_orphan
+frogg@Melchior-1:/mnt/c/Users/Frogg/OneDrive - Concordia University, Nebraska/Desktop/Programming/CS360/prg1/prg1_orphan$ ./prg1_orphan
+
+This is the parent, my pid is: 95835 
+I am now terminating.
+frogg@Melchior-1:/mnt/c/Users/Frogg/OneDrive - Concordia University, Nebraska/Desktop/Programming/CS360/prg1/prg1_orphan$ 
+Child Status Info:
+    PID    PPID STAT
+  95836     586 S
+
+
+This is an orphaned child.
+My pid is: 95836
+My parent's pid was: 95835
+My parent's pid is now: 586
+
+___________________Program 3 Output Review___________________
+As can be seen in this file, parent's id was 95835, but then 
+it tragically died. So the child becomes an orphan and 
+process 586 becomes a parent figure for it.
+
+
+
+__________________________Program 4__________________________
+This program creates a child and immediately kills it. 
+However, it does not acknowledge the fact that the child has 
+died until after displaying the process status and showing 
+that it has become a zombie. Once its status info has been 
+displayed, my program terminates the zombie child.
+
+_______________________Program 4 Output______________________
+frogg@Melchior-1:/mnt/c/Users/Frogg/OneDrive - Concordia University, Nebraska/Desktop/Programming/CS360/prg1/prg1_zombie$ gcc prg1_zombie.c -o prg1_zombie
+frogg@Melchior-1:/mnt/c/Users/Frogg/OneDrive - Concordia University, Nebraska/Desktop/Programming/CS360/prg1/prg1_zombie$ ./prg1_zombie
+
+Child Status Info:
+    PID    PPID STAT
+  96317   96316 Z+
+
+The child has turned into a zombie and now must be terminated.
+
+
+___________________Program 4 Output Review___________________
+As can be seen in this output, the child with pid 96317 has
+turned into a zombie so the parent with pid 96316 terminates 
+it.
