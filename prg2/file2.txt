@@ -1,0 +1,31 @@
+-Parent- Parent 56939 writing to file
+
+-Parent- The child's final msg was: 
+
+-Parent- Parent 57388 writing to file
+-Child- Child 57391 writing to file.
+
+-Child- Terminal Info:
+    PID    PPID COMMAND
+    819     801 bash
+  57388     819 parent
+  57389   57388 helper
+  57390   57388 helper
+  57391   57388 child
+  57392   57391 sh
+  57393   57392 ps
+
+-Child- Original Message:
+This is a message from child.
+
+-Child-  Message From P3:
+This is a message from child.
+Hey, this is process 3 with pid: 57389
+
+-Child-  Message From P4:
+This is a message from child.
+Hey, this is process 4 with pid: 57390
+
+-Parent- The child's final msg was: 
+Child has finished.
+

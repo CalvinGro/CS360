@@ -18,7 +18,7 @@ int main(void) {
     printf("----------- Parent Started -----------\n\n");
 
     // open file
-    FILE *shared_file = fopen("shared_doc.txt", "a");
+    FILE* shared_file = fopen("shared_doc.txt", "a");
 
     // loop through all children
     for (uint8_t i = 0; i < CHILDREN_COUNT; i++) {
